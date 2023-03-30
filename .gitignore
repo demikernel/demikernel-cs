@@ -5,6 +5,7 @@
 contrib/
 target/
 bin/
+obj/
 *.a
 *.elf
 *.exe
@@ -30,3 +31,5 @@ tags.*
 
 # rust
 Cargo.lock
+
+# .NET

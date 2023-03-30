@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Demikernel</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+    <Authors>Microsoft</Authors>
+    <OutputType>Library</OutputType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DefaultItemExcludes>test\*</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="contrib\demikernel\target\release\libdemikernel.so">
+      <PackagePath>runtimes/linux-x64/native/libdemikernel.so</PackagePath>
+      <Link>native/linux-x64/libdemikernel.so</Link>
+      <Pack>true</Pack>
+    </Content>
+  </ItemGroup>
+
+</Project>
