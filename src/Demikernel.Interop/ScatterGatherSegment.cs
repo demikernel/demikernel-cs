@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 namespace Demikernel.Interop;
 
 // note: it is not accidental that this one is internal; we don't seem to need to expose this directly
-[StructLayout(LayoutKind.Explicit, Pack = 1, Size = 16)]
+[StructLayout(LayoutKind.Explicit, Pack = 1, Size = 12)]
 internal readonly unsafe struct ScatterGatherSegment
 {
     [FieldOffset(0)] private readonly byte* _buf;

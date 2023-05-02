@@ -11,7 +11,7 @@ namespace Demikernel.Interop;
 /// Represents a set of segments allocated as a buffer for a read or write operation
 /// </summary>
 /// <remarks>The choice of public fields here is intentional, as this type is a raw P/Invoke layer</remarks>
-[StructLayout(LayoutKind.Explicit, Pack = 1, Size = 48)]
+[StructLayout(LayoutKind.Explicit, Pack = 1, Size = 40)]
 public unsafe readonly struct ScatterGatherArray : IDisposable
 {
     private const int MAX_SEGMENTS = 1;
@@ -20,7 +20,7 @@ public unsafe readonly struct ScatterGatherArray : IDisposable
     /// The number of segments represented by this buffer
     /// </summary>
     [FieldOffset(8)] public readonly uint SegmentCount;
-    [FieldOffset(16)] private readonly ScatterGatherSegment _firstSegment; // [Sizes.SCATTER_GATHER_SEGMENT * MAX_SEGMENTS];
+    [FieldOffset(12)] private readonly ScatterGatherSegment _firstSegment; // [Sizes.SCATTER_GATHER_SEGMENT * MAX_SEGMENTS];
     [FieldOffset(32)] private readonly byte _saddrStart; //[Sizes.SOCKET_ADDRESS];
 
     static void ThrowMultiSegmentNotExpected()

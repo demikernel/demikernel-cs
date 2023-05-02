@@ -10,7 +10,7 @@ namespace Demikernel.Interop;
 /// Represents a pending queue operation
 /// </summary>
 /// <remarks>The choice of public fields here is intentional, as this type is a raw P/Invoke layer</remarks>
-[StructLayout(LayoutKind.Explicit, Pack = 1)]
+[StructLayout(LayoutKind.Explicit, Pack = 1, Size = 60)]
 public readonly struct QueueResult
 {
     /// <summary>
@@ -29,14 +29,19 @@ public readonly struct QueueResult
     [FieldOffset(8)]
     public readonly QueueToken QueueToken;
     /// <summary>
-    /// Gets the buffer returned from this operation; this is only defined if this was a <see cref="Opcode.Pop"/>
+    /// Gets the return code associated with this result
     /// </summary>
     [FieldOffset(16)]
+    public readonly System.Int64 ReturnCode;
+    /// <summary>
+    /// Gets the buffer returned from this operation; this is only defined if this was a <see cref="Opcode.Pop"/>
+    /// </summary>
+    [FieldOffset(24)]
     public readonly ScatterGatherArray ScatterGatherArray;
     /// <summary>
     /// Gets the socket accepted from this operation; this is only defined if this was a <see cref="Opcode.Accept"/>
     /// </summary>
-    [FieldOffset(16)]
+    [FieldOffset(24)]
     public readonly AcceptResult AcceptResult;
 
     /// <inheritdoc/>

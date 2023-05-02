@@ -10,11 +10,11 @@ namespace Demikernel.Interop;
 /// <summary>
 /// Represents a Demikernel socket instance
 /// </summary>
-[StructLayout(LayoutKind.Explicit)]
+[StructLayout(LayoutKind.Explicit, Pack = 1, Size = 8)]
 public readonly struct QueueToken : IEquatable<QueueToken>
 {
     [FieldOffset(0)]
-    internal readonly long Qt;
+    internal readonly System.Int64 Qt;
 
     /// <summary>Compare two values for equality</summary>
     public bool Equals(QueueToken other) => other.Qt == Qt;
